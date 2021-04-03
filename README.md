@@ -4,6 +4,13 @@
 Чтоб каждый раз не писать Dockerfile и docker-compose.yml просто копируем текущий конфиг в готовй django проект, после запускаем docker-compose up и далее проект 
 запускается на 8000 порту хоста. 
 
+Комманды: 
+
+    docker-compose up
+    docker exec -it web_container_id python manage.py makemigrations
+    docker exec -it web_container_id python manage.py migrate
+    docker exec -it web_container_id python manage.py createsuperuser
+
 Что надо знать: 
 1. В docker-compose.yml сперва поднимается БД postgres, после поднимается сам сервер django (build-in, без gunicorn). 
 2. Снабдить актуальным requirements.txt, pip freeze > requirements.txt 
